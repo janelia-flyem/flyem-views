@@ -14,25 +14,52 @@
       ]
     },
     "position": [
-      18386,
-      21340,
-      19748
+      16575.388671875,
+      20333.078125,
+      19110.75390625
     ],
-    "crossSectionScale": 66.24585188318464,
+    "crossSectionScale": 59.94172557357341,
     "crossSectionDepth": -37.62185354999912,
     "projectionScale": 130432.61001731215,
     "layers": [
       {
         "type": "image",
-        "source": "precomputed://gs://neuroglancer-janelia-flyem-hemibrain/emdata/clahe_yz/jpeg",
-        "tab": "source",
+        "source": {
+          "url": "precomputed://gs://neuroglancer-janelia-flyem-hemibrain/emdata/clahe_yz/jpeg",
+          "subsources": {
+            "default": true,
+            "bounds": true
+          },
+          "enableDefaultSubsources": false
+        },
         "name": "emdata"
       },
       {
         "type": "segmentation",
-        "source": "precomputed://gs://neuroglancer-janelia-flyem-hemibrain/v1.1/segmentation",
+        "source": {
+          "url": "precomputed://gs://neuroglancer-janelia-flyem-hemibrain/v1.1/segmentation",
+          "subsources": {
+            "default": true,
+            "properties": true,
+            "mesh": true
+          },
+          "enableDefaultSubsources": false
+        },
         "tab": "segments",
-        "name": "segmentation"
+        "name": "segmentation",
+        "visible": false
+      },
+      {
+        "type": "segmentation",
+        "source": {
+          "url": "precomputed://gs://hemibrain/v1.1/all_brain_roi",
+          "subsources": {
+            "default": true
+          },
+          "enableDefaultSubsources": false
+        },
+        "name": "all_brain_roi",
+        "visible": false
       },
       {
         "type": "segmentation",
@@ -46,7 +73,6 @@
           "enableDefaultSubsources": false
         },
         "tab": "segments",
-        "selectedAlpha": 0.2,
         "objectAlpha": 0.8,
         "colorSeed": 2685294016,
         "meshSilhouetteRendering": 3,
@@ -56,7 +82,6 @@
       {
         "type": "annotation",
         "source": "precomputed://gs://neuroglancer-janelia-flyem-hemibrain/v1.1/synapses",
-        "tab": "source",
         "shader": "#uicontrol vec3 preColor color(default=\"red\")\n#uicontrol vec3 postColor color(default=\"blue\")\n#uicontrol float preConfidence slider(min=0, max=1, default=0)\n#uicontrol float postConfidence slider(min=0, max=1, default=0)\n\nvoid main() {\n  setColor(defaultColor());\n  setEndpointMarkerColor(\n    vec4(preColor, 0.5),\n    vec4(postColor, 0.5));\n  setEndpointMarkerSize(2.0, 2.0);\n  setLineWidth(2.0);\n  if (prop_pre_synaptic_confidence()< preConfidence ||\n      prop_post_synaptic_confidence()< postConfidence) discard;\n}\n",
         "ignoreNullSegmentFilter": false,
         "linkedSegmentationLayer": {
