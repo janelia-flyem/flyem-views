@@ -1,0 +1,18 @@
+2020-04-29
+Explanation of gs://flyem-views
+===============================
+
+This bucket contains neuroglancer view settings files, also tracked as a git repo.
+They can be used in neuroglancer links, which allows for much shorter links
+than one would need if the settings are all specified in the URL itself.
+
+For example:
+
+    https://neuroglancer-demo.appspot.com/#!gs://flyem-views/hemibrain/v1.0/base.json
+    https://neuroglancer-demo.appspot.com/#!gs://flyem-views/hemibrain/v1.0/mask-view.json
+    https://neuroglancer-demo.appspot.com/#!gs://flyem-views/hemibrain/v1.1/base.json
+    https://neuroglancer-demo.appspot.com/#!gs://flyem-views/hemibrain/v1.1/mask-view.json
+
+Note:
+    Our hemibrain paper includes some links that use these files.
+    Don't delete them!

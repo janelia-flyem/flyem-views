@@ -1,0 +1,114 @@
+{
+    "dimensions": {
+      "x": [
+        8e-9,
+        "m"
+      ],
+      "y": [
+        8e-9,
+        "m"
+      ],
+      "z": [
+        8e-9,
+        "m"
+      ]
+    },
+    "position": [
+      18386,
+      21340,
+      19748
+    ],
+    "crossSectionScale": 66.24585188318464,
+    "crossSectionDepth": -37.62185354999912,
+    "projectionScale": 130432.61001731215,
+    "layers": [
+      {
+        "type": "image",
+        "source": "precomputed://gs://neuroglancer-janelia-flyem-hemibrain/emdata/clahe_yz/jpeg",
+        "tab": "source",
+        "name": "emdata"
+      },
+      {
+        "type": "segmentation",
+        "source": "precomputed://gs://neuroglancer-janelia-flyem-hemibrain/v1.1/segmentation",
+        "tab": "segments",
+        "name": "segmentation"
+      },
+      {
+        "type": "segmentation",
+        "source": {
+          "url": "precomputed://gs://neuroglancer-janelia-flyem-hemibrain/v1.1/rois",
+          "subsources": {
+            "default": true,
+            "properties": true,
+            "mesh": true
+          },
+          "enableDefaultSubsources": false
+        },
+        "tab": "segments",
+        "selectedAlpha": 0.2,
+        "objectAlpha": 0.8,
+        "colorSeed": 2685294016,
+        "meshSilhouetteRendering": 3,
+        "name": "roi",
+        "visible": false
+      },
+      {
+        "type": "annotation",
+        "source": "precomputed://gs://neuroglancer-janelia-flyem-hemibrain/v1.1/synapses",
+        "tab": "source",
+        "shader": "#uicontrol vec3 preColor color(default=\"red\")\n#uicontrol vec3 postColor color(default=\"blue\")\n#uicontrol float preConfidence slider(min=0, max=1, default=0)\n#uicontrol float postConfidence slider(min=0, max=1, default=0)\n\nvoid main() {\n  setColor(defaultColor());\n  setEndpointMarkerColor(\n    vec4(preColor, 0.5),\n    vec4(postColor, 0.5));\n  setEndpointMarkerSize(2.0, 2.0);\n  setLineWidth(2.0);\n  if (prop_pre_synaptic_confidence()< preConfidence ||\n      prop_post_synaptic_confidence()< postConfidence) discard;\n}\n",
+        "ignoreNullSegmentFilter": false,
+        "linkedSegmentationLayer": {
+          "pre_synaptic_cell": "segmentation",
+          "post_synaptic_cell": "segmentation"
+        },
+        "filterBySegmentation": [
+          "post_synaptic_cell",
+          "pre_synaptic_cell"
+        ],
+        "name": "synapse",
+        "visible": false
+      },
+      {
+        "type": "segmentation",
+        "source": {
+          "url": "precomputed://gs://neuroglancer-janelia-flyem-hemibrain/mito_20190717.27250582",
+          "subsources": {
+            "default": true,
+            "properties": true
+          },
+          "enableDefaultSubsources": false
+        },
+        "tab": "segments",
+        "pick": false,
+        "selectedAlpha": 0.82,
+        "name": "mito",
+        "visible": false
+      },
+      {
+        "type": "segmentation",
+        "source": {
+          "url": "precomputed://gs://neuroglancer-janelia-flyem-hemibrain/mask_normalized_round6",
+          "subsources": {
+            "default": true,
+            "properties": true
+          },
+          "enableDefaultSubsources": false
+        },
+        "tab": "segments",
+        "pick": false,
+        "selectedAlpha": 0.53,
+        "name": "voxel-classes",
+        "visible": false
+      }
+    ],
+    "showSlices": false,
+    "selectedLayer": {
+      "layer": "segmentation",
+      "visible": true,
+      "size": 290
+    },
+    "layout": "4panel",
+    "selection": null
+}
