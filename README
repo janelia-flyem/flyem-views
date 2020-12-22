@@ -16,3 +16,13 @@ For example:
 Note:
     Our hemibrain paper includes some links that use these files.
     Don't delete them!
+
+Publishing changes
+==================
+
+The git repo is just a mirror of the bucket for tracking changes.
+After adding/editing files in this repo, publish them by overwriting files in the bucket:
+
+    cd flyem-views
+    gsutil cp -r hemibrain gs://flyem-views/
+
