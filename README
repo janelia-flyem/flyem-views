@@ -8,10 +8,10 @@ than one would need if the settings are all specified in the URL itself.
 
 For example:
 
-    https://neuroglancer-demo.appspot.com/#!gs://flyem-views/hemibrain/v1.0/base.json
-    https://neuroglancer-demo.appspot.com/#!gs://flyem-views/hemibrain/v1.0/mask-view.json
-    https://neuroglancer-demo.appspot.com/#!gs://flyem-views/hemibrain/v1.1/base.json
-    https://neuroglancer-demo.appspot.com/#!gs://flyem-views/hemibrain/v1.1/mask-view.json
+    https://hemibrain-dot-neuroglancer-demo.appspot.com/#!gs://flyem-views/hemibrain/v1.0/base.json
+    https://hemibrain-dot-neuroglancer-demo.appspot.com/#!gs://flyem-views/hemibrain/v1.0/mask-view.json
+    https://hemibrain-dot-neuroglancer-demo.appspot.com/#!gs://flyem-views/hemibrain/v1.1/base.json
+    https://hemibrain-dot-neuroglancer-demo.appspot.com/#!gs://flyem-views/hemibrain/v1.1/mask-view.json
 
 Note:
     Our hemibrain paper includes some links that use these files.
