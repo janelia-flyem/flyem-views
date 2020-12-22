@@ -76,7 +76,8 @@
           "post_synaptic_cell",
           "pre_synaptic_cell"
         ],
-        "name": "synapse"
+        "name": "synapse",
+        "visible": false
       },
       {
         "type": "segmentation",
