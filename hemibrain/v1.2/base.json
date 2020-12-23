@@ -73,7 +73,6 @@
           "post_synaptic_cell": "segmentation"
         },
         "filterBySegmentation": [
-          "post_synaptic_cell",
           "pre_synaptic_cell"
         ],
         "name": "synapse",
