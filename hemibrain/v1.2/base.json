@@ -25,6 +25,7 @@
       {
         "type": "image",
         "source": "precomputed://gs://neuroglancer-janelia-flyem-hemibrain/emdata/clahe_yz/jpeg",
+        "tab": "source",
         "name": "emdata"
       },
       {
@@ -52,8 +53,8 @@
           },
           "enableDefaultSubsources": false
         },
-        "tab": "segments",
         "pick": false,
+        "tab": "segments",
         "selectedAlpha": 0,
         "saturation": 0,
         "linkedSegmentationGroup": "segmentation",
@@ -89,8 +90,8 @@
           },
           "enableDefaultSubsources": false
         },
-        "tab": "segments",
         "pick": false,
+        "tab": "segments",
         "selectedAlpha": 0,
         "saturation": 0,
         "objectAlpha": 0.8,
@@ -109,8 +110,8 @@
           },
           "enableDefaultSubsources": false
         },
-        "tab": "segments",
         "pick": false,
+        "tab": "segments",
         "segmentColors": {
           "4": "#000000"
         },
@@ -127,21 +128,42 @@
           },
           "enableDefaultSubsources": false
         },
-        "tab": "segments",
         "pick": false,
+        "tab": "segments",
         "selectedAlpha": 0.53,
         "segmentColors": {
           "7": "#000000"
         },
-        "name": "mask",
+        "name": "voxel-classes",
+        "visible": false
+      },
+      {
+        "type": "segmentation",
+        "source": {
+          "url": "precomputed://gs://flyem-ng-layers/hemibrain/all_brain_roi",
+          "subsources": {
+            "default": true,
+            "properties": true,
+            "mesh": true
+          },
+          "enableDefaultSubsources": false
+        },
+        "pick": false,
+        "tab": "source",
+        "selectedAlpha": 0,
+        "saturation": 0,
+        "meshSilhouetteRendering": 4,
+        "segments": [
+          "1"
+        ],
+        "name": "brain-mask",
         "visible": false
       }
     ],
     "showSlices": false,
     "selectedLayer": {
-      "layer": "segmentation",
       "visible": true,
-      "size": 290
+      "layer": "segmentation"
     },
     "layout": "xy-3d"
   }
